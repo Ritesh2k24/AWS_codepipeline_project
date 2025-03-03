@@ -1,5 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      docker: 20
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws --version
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - docker build -t my-docker-app .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+
 artifacts:
   files:
     - '**/*'  # Include all files
-  name: output.zip  # Name of the artifact
+  name: output.zip  # This will be the S3 Object Key
   discard-paths: yes
