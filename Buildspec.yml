@@ -12,10 +12,10 @@ phases:
   post_build:
     commands:
       - echo "Zipping files for deployment"
-      - zip -r website.zip .
+      - zip -r output.zip .
 
 artifacts:
   files:
     - '**/*'
-  name: website.zip
+  name: output.zip
   discard-paths: no
