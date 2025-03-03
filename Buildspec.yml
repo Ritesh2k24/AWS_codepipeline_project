@@ -1,0 +1,5 @@
+artifacts:
+  files:
+    - '**/*'  # Include all files
+  name: output.zip  # Name of the artifact
+  discard-paths: yes
