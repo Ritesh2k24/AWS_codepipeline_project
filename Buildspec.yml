@@ -11,13 +11,14 @@ phases:
 
   post_build:
     commands:
-      - echo "Zipping files for deployment"
-      - zip -r output.zip .
+      - echo "Copying files to S3 bucket"
+      - aws s3 cp index.html s3://liukang2025/
+      - aws s3 cp error.html s3://liukang2025/
+      - aws s3 cp --recursive . s3://liukang2025/
 
 artifacts:
   files:
     - 'index.html'
     - 'error.html'
     - '**/*'
-    
   discard-paths: no
